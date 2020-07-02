@@ -1,4 +1,4 @@
-﻿# AKDice
+﻿# AKDice 3.1.x
 # Using
 `using Anikaiful.Dice;`
 # Notes
