@@ -1,4 +1,5 @@
-﻿# Using
+﻿# AKDice
+# Using
 `using Anikaiful.Dice;`
 # Notes
 All "probability values" are automatically clamped into (0 .. 100, inclusive) range unless `Dice.ThrowProbabilityOutOfRange = true` is set.
