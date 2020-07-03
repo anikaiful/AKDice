@@ -62,3 +62,6 @@ As per `#.Evaluate()` but with result represented as `T`. Note that this will wo
 
 # TODO, etc.
 * Get `#.Evaluate()` to work with various forms of probability expressions.
+
+# Changes from 3.1.4 to 3.1.5
+* Added "generics" Evaluate() to string extensions (mainly for syntax sugar).
