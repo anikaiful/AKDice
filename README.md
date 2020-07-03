@@ -10,4 +10,5 @@ Dice roll simulations. See the "Doc.md" for more details, but in short:
 
 ### Ranges
 `int Dice.Range(int min, int max)`
+
 `double Dice.Range(double min, double max)`
