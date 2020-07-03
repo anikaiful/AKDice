@@ -48,7 +48,7 @@ Internally the above extensions refer to...
 `#` refers to any valid `string` value.
 * `string #.Evaluate(Dice.RollEvaluateMethod method = Dice.RollEvaluateMethod.Default)`
 Evaluates all dice roll expressions and/or simple calculation ops (plus, minus, multiply, divide) embedded in the free-form string `#`, returning a new string. By default `Dice.RollEvaluateMethod.Default` is used as `method`. At times you might need minimum/maximum value of the expression(s), and for that purpose there is `Dice.RollEvaluateMethod.Minimize` and `Dice.RollEvaluateMethod.Maximize` respectively. Note that multiply and divide work internally with `double` values and thus YMMV with their result precision.
-* `T #.Evaluate\<T\>(Dice.RollEvaluateMethod method = Dice.RollEvaluateMethod.Default)`
+* `T #.Evaluate`<`T`>`(Dice.RollEvaluateMethod method = Dice.RollEvaluateMethod.Default)`
 As per `#.Evaluate()` but with result represented as `T`. Note that this will work (only) when `T` is:
         `int`, `long`, `float`, `double`, `decimal`.
 
