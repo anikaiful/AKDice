@@ -24,13 +24,11 @@ Dice roll simulations. See the "Doc.md" for more details, but in short:
 Ergo, `2.d6()`, `18d20(3)`, `3.d4(probability: 75)`, `(5.d6()).d10(-3, probability: 4)`, and so forth.
 
 ## `string` Extensions
-* `string` -- `"some string with dice roll 5d6+5 embedded".Evaluate()`
-* `int` -- `"5d10+3".Evaluate<int>()`
-* `double` -- `"4d6-2".Evaluate<double>()`
-
-Ergo:
 ```
-    string s = "some string with 5d6+5".Evaluate();
-    int i    = "5d6+5".Evaluate<int>();
-    long l   = "5d6+5".Evaluate<long>();
+    string s  = "string with 5d6+5 embedded".Evaluate();
+    int i     = "5d6+5".Evaluate<int>();
+    long l    = "5d6+5".Evaluate<long>();
+    float f   = "5d6+5".Evaluate<float>();
+    double d  = "5d6+5".Evaluate<double>();
+    decimal m = "5d6+5".Evaluate<decimal>();
 ```
