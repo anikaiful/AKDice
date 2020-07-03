@@ -23,4 +23,4 @@ Dice roll simulations. See the "Doc.md" for more details, but in short:
 
 `int `someInt`.dExt(int mod=0, int probability=100)`
 
-Ergo, `2.d6()`, `18d20(3)`, `3.d4(probability: 75)`, and so forth.
+Ergo, `2.d6()`, `18d20(3)`, `3.d4(probability: 75)`, `(5.d6()).d10(-3, probability: 4)`, and so forth.
