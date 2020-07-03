@@ -5,15 +5,17 @@
     <RootNamespace>Anikaiful.Dice</RootNamespace>
     <Copyright>2015-2020 Anita Kai</Copyright>
     <Description>Dice roll simulations.</Description>
-    <Version>3.1.4.3</Version>
+    <Version>3.1.5.1</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Platforms>AnyCPU;x64</Platforms>
     <PackageProjectUrl>https://nuget.org/packages/AKDice</PackageProjectUrl>
     <PackageTags>dice library csharp</PackageTags>
     <Authors>Anita Kai</Authors>
     <Company>-</Company>
-    <AssemblyVersion>3.1.4.3</AssemblyVersion>
-    <FileVersion>3.1.4.3</FileVersion>
+    <AssemblyVersion>3.1.5.3</AssemblyVersion>
+    <FileVersion>3.1.5.0</FileVersion>
+    <RepositoryUrl>https://github.com/anikaiful/AKDice</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
   </PropertyGroup>
 
 </Project>

@@ -1,4 +1,6 @@
-﻿using System.Text.RegularExpressions;
+﻿using System;
+using System.Runtime.CompilerServices;
+using System.Text.RegularExpressions;
 
 namespace Anikaiful.Dice
 {
@@ -16,6 +18,7 @@ namespace Anikaiful.Dice
         /// Evaluate basic math portion(s) of the given string.
         /// </summary>
         /// <param name="s">String.</param>
+        /// <param name="evaluateMethod">Some <see cref="Dice.RollEvaluateMethod">roll evaluate method</see>.</param>
         /// <returns>Math-solved string.</returns>
         static public string Evaluate(this string s, Dice.RollEvaluateMethod evaluateMethod = Dice.RollEvaluateMethod.Default)
         {
@@ -37,6 +40,35 @@ namespace Anikaiful.Dice
             res = res.CalcDo(CalcMode.Sub);
 
             return res;
+        }
+
+        /// <summary>
+        /// Evaluate basic math portion(s) of the given string.
+        /// </summary>
+        /// <typeparam name="T">Return type; supported:
+        /// <see langword="int"/>,
+        /// <see langword="long"/>,
+        /// <see langword="float"/>,
+        /// <see langword="double"/>,
+        /// <see langword="decimal"/>.
+        /// </typeparam>
+        /// <param name="s">Some string w/ or w/o basic mathy things.</param>
+        /// <param name="evaluateMethod">Some <see cref="Dice.RollEvaluateMethod">roll evaluate method</see>.</param>
+        /// <returns>Something sensible?</returns>
+        static public T Evaluate<T>(this string s, Dice.RollEvaluateMethod evaluateMethod = Dice.RollEvaluateMethod.Default)
+        {
+            if (typeof(T) == typeof(int))
+                return (T)(object)int.Parse(s.Evaluate());
+            if (typeof(T) == typeof(double))
+                return (T)(object)double.Parse(s.Evaluate());
+            if (typeof(T) == typeof(long))
+                return (T)(object)long.Parse(s.Evaluate());
+            if (typeof(T) == typeof(float))
+                return (T)(object)float.Parse(s.Evaluate());
+            if (typeof(T) == typeof(decimal))
+                return (T)(object)decimal.Parse(s.Evaluate());
+
+            throw new TypeAccessException("At the moment only these types are supported: int, long, float, double, decimal");
         }
 
         /// <summary>
