@@ -24,12 +24,24 @@ Dice roll simulations. See the "Doc.md" for more details, but in short:
   bool b3 = Dice.Chance(75);        // 75% chance to result in true.
 ```
 ## `int` Extensions
-`d2`, `d3`, `d4`, `d5`, `d6`, `d8`, `d10`, `d12`, `d20`, `d100`, all as per (hypotethical) `dExt` below:
-
-* `int `someInt`.dExt(int mod=0, int probability=100)`
-
-Ergo, `2.d6()`, `18d20(3)`, `3.d4(probability: 75)`, `(5.d6()).d10(-3, probability: 4)`, and so forth.
-
+* `d2 (int mod=0, int probability=100)`
+* `d3 (...)`
+* `d4 (...)`
+* `d5 (...)`
+* `d6 (...)`
+* `d8 (...)`
+* `d10 (...)`
+* `d12 (...)`
+* `d20 (...)`
+* `d100 (...)`, all as per `d2` example:
+```
+  int r1 = 5.d6();
+  int r2 = 5.d6(5);
+  int r3 = 5.d6(5, 75);
+  int r4 = 5.d6(mod: 5, probability: 75);
+  int r5 = 5.d6(probability: 75);
+  int r6 = (5.d6(5, 1.d100())).d6(probability: 25);
+```
 ## `string` Extensions
 ```
   string s  = "string with 5d6+5 embedded".Evaluate();
