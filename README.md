@@ -29,6 +29,8 @@ Ergo, `2.d6()`, `18d20(3)`, `3.d4(probability: 75)`, `(5.d6()).d10(-3, probabili
 * `double` -- `"4d6-2".Evaluate<double>()`
 
 Ergo:
+```
     string s = "some string with 5d6+5".Evaluate();
     int i    = "5d6+5".Evaluate<int>();
     long l   = "5d6+5".Evaluate<long>();
+```
