@@ -54,5 +54,5 @@ Dice roll simulations. See the "Doc.md" for more details, but in short:
 ## `bool` Extensions
 ```
   bool b1 = true.Probability(75);       // 75% chance for b1==true, 25% for b1==false
-  bool b2 = (b1==true).Probability(33); // ;-) ... yeah.
+  bool b2 = (b1==true).Probability(33); // ;-) ... yeah, go figure ...
 ```
