@@ -33,7 +33,7 @@ Dice roll simulations. See the "Doc.md" for more details, but in short:
 * `d10 (...)`
 * `d12 (...)`
 * `d20 (...)`
-* `d100 (...)`, all as per `d2` example:
+* `d100 (...)`, all as per `d2` above.
 ```
   int r1 = 5.d6();
   int r2 = 5.d6(5);
@@ -50,4 +50,8 @@ Dice roll simulations. See the "Doc.md" for more details, but in short:
   float f   = "5d6+5".Evaluate<float>();
   double d  = "5d6+5".Evaluate<double>();
   decimal m = "5d6+5".Evaluate<decimal>();
+```
+## `bool` Extensions
+```
+  bool b = true.Probability(75); // 75% chance for b==true, 25% for b==false
 ```
