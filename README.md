@@ -11,7 +11,10 @@ Dice roll simulations. See the "Doc.md" for more details, but in short:
 ### Ranges
 * `int Dice.Range(int min, int max)`
 * `double Dice.Range(double min, double max)`
-
+```
+   int ir    = Dice.Range(3,11);
+   double dr = Dice.Range(3.0,11.0);
+```
 ### Randoms
 * `bool Dice.ToBoolean(bool? tf)`
 * `bool Dice.Chance(int probability=50)`
