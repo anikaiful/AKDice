@@ -37,11 +37,8 @@ namespace Anikaiful.Dice
         static internal int d_(int n, int s)
         {
             // no dice? No sides?
-            if (n == 0 || s <= 0)
-                return 0;
-            
-            if (s == 1)// this's very one-sided...
-                return n;
+            if (n == 0 || s <= 1)
+                return s == 1 ? n : 0;
 
             bool sign = n < 0;
             if (sign)
