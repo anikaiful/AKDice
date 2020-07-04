@@ -18,4 +18,8 @@
     <RepositoryType>git</RepositoryType>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="README.md" />
+  </ItemGroup>
+
 </Project>
