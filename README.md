@@ -1,6 +1,6 @@
 # AKDice
 
-Dice roll simulations. See the [doc.md](doc.md) and/or [readme.md](../../tree/master/readme.md).
+Dice roll simulations. See the [doc.md](../../tree/master/AKDice/doc.md) and/or [readme.md](../../tree/master/AKDice/readme.md).
 
 ## Usage
 
