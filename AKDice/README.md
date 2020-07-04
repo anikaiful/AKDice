@@ -1,6 +1,6 @@
 # AKDice
 
-Dice roll simulations. See the "Doc.md" for more details, but in short:
+Dice roll simulations. See the [Doc.md](Doc.md) for more details, but in short:
 
 ## Usage
 
