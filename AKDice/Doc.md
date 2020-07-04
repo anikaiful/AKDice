@@ -5,9 +5,9 @@
 All "probability values" are automatically clamped into (0 .. 100, inclusive) range unless `Dice.ThrowProbabilityOutOfRange = true` is set.
 # Static Functions
 ## `double Dice.Range(double d1, double d2)`
-Returns a `double` in range (`d1` .. `d2`, inclusive).
+Returns a `double` in range (`d1` .. `d2`, inclusive). Note that it doesn't matter which of the numbers is greater than the other.
 ## `int Dice.Range(int i1, int i2)`
-Returns an `int` in range (`i1` .. `i2`, inclusive).
+Returns an `int` in range (`i1` .. `i2`, inclusive). Note that it doesn't matter which of the numbers is greater than the other.
 ## `bool Dice.ToBoolean(bool? b)`
 Returns either `b` (if not `null`) or a random `true`|`false` value.
 ## `bool Dice.Chance(int probability = 50)`

@@ -8,6 +8,12 @@ namespace Anikaiful.Dice
     /// </summary>
     static public class Dice
     {
+        /// <summary>
+        /// Evaluate methods:
+        /// * Default
+        /// * Minimize - minimize roll values.
+        /// * Maximize - maximize roll values.
+        /// </summary>
         public enum RollEvaluateMethod { Default, Minimize, Maximize }
 
         /// <summary>
@@ -52,43 +58,43 @@ namespace Anikaiful.Dice
         /// <summary>
         /// Get a random number in the given range.
         /// </summary>
-        /// <param name="min">Minimum value returned.</param>
-        /// <param name="max">Maximum value returned.</param>
+        /// <param name="d1">Minimum value returned.</param>
+        /// <param name="d2">Maximum value returned.</param>
         /// <returns></returns>
-        static public double Range(double min, double max)
+        static public double Range(double d1, double d2)
         {
-            if (min == max) return min;
+            if (d1 == d2) return d1;
 
             // swap if needed
-            if (min > max)
+            if (d1 > d2)
             {
-                double t = min;
-                min = max;
-                max = t;
+                double t = d1;
+                d1 = d2;
+                d2 = t;
             }
 
-            return min + (_rng_.NextDouble() * (max - min));
+            return d1 + (_rng_.NextDouble() * (d2 - d1));
         }
 
         /// <summary>
         /// Get a random number in the given range.
         /// </summary>
-        /// <param name="min">Minimum value returned.</param>
-        /// <param name="max">Maximum value returned.</param>
+        /// <param name="i1">Minimum value returned.</param>
+        /// <param name="i2">Maximum value returned.</param>
         /// <returns>Some <see langword="int"/>.</returns>
-        static public int Range(int min, int max)
+        static public int Range(int i1, int i2)
         {
-            if (min == max) return min;
+            if (i1 == i2) return i1;
 
             // swap if needed
-            if (min > max)
+            if (i1 > i2)
             {
-                int t = min;
-                min = max;
-                max = t;
+                int t = i1;
+                i1 = i2;
+                i2 = t;
             }
 
-            return _rng_.Next(min, max);
+            return _rng_.Next(i1, i2);
         }
 
         /// <summary>
@@ -110,7 +116,7 @@ namespace Anikaiful.Dice
         /// </summary>
         /// <param name="thisOrBelow">Success if roll is below-or-equal-to this number</param>
         /// <returns>Success</returns>
-        static public bool Chance(int thisOrBelow = 50) => 1.d100() <= thisOrBelow;
+        static public bool Chance(int probability = 50) => 1.d100() <= probability;
 
         /// <summary>
         /// Roll (all, if any) dice representations within given string.
@@ -138,31 +144,25 @@ namespace Anikaiful.Dice
         /// <returns>An integer, <paramref name="v"/>.</returns>
         /// <exception cref="ArgumentOutOfRangeException">Thrown if <see cref="ThrowProbabilityOutOfRange"/>
         /// is set to <code>true</code> and <paramref name="v"/> is outside 0..100 range.</exception>
-        static internal int ValidateProbability(int v)
+        static private int ValidateProbability(int v)
         {
             if (ThrowProbabilityOutOfRange && (v < 0 || v > 100))
                 throw new ArgumentOutOfRangeException($"Probability value {v} is outside of 0..100 range!");
             return v;
         }
-    }
 
-    /// <summary>
-    /// Various <seealso cref="Dice"/> related extensions.
-    /// </summary>
-    static public partial class DiceExt
-    {
 #pragma warning disable IDE1006
-        static public int d2(this int c, int mod = 0, int probability = 100) => (Dice.d_(c, 2) + mod).Probability(probability);
-        static public int d3(this int c, int mod = 0, int probability = 100) => (Dice.d_(c, 3) + mod).Probability(probability);
-        static public int d4(this int c, int mod = 0, int probability = 100) => (Dice.d_(c, 4) + mod).Probability(probability);
-        static public int d5(this int c, int mod = 0, int probability = 100) => (Dice.d_(c, 5) + mod).Probability(probability);
-        static public int d6(this int c, int mod = 0, int probability = 100) => (Dice.d_(c, 6) + mod).Probability(probability);
-        static public int d8(this int c, int mod = 0, int probability = 100) => (Dice.d_(c, 8) + mod).Probability(probability);
-        static public int d10(this int c, int mod = 0, int probability = 100) => (Dice.d_(c, 10) + mod).Probability(probability);
-        static public int d12(this int c, int mod = 0, int probability = 100) => (Dice.d_(c, 12) + mod).Probability(probability);
-        static public int d20(this int c, int mod = 0, int probability = 100) => (Dice.d_(c, 20) + mod).Probability(probability);
-        static public int d100(this int c, int mod = 0, int probability = 100) => (Dice.d_(c, 100) + mod).Probability(probability);
-        static public int d_(this int c, int s, int mod = 0, int probability = 100) => (Dice.d_(c, s) + mod).Probability(probability);
+        static public int d2(this int c, int mod = 0, int probability = 100) => (d_(c, 2) + mod).Probability(probability);
+        static public int d3(this int c, int mod = 0, int probability = 100) => (d_(c, 3) + mod).Probability(probability);
+        static public int d4(this int c, int mod = 0, int probability = 100) => (d_(c, 4) + mod).Probability(probability);
+        static public int d5(this int c, int mod = 0, int probability = 100) => (d_(c, 5) + mod).Probability(probability);
+        static public int d6(this int c, int mod = 0, int probability = 100) => (d_(c, 6) + mod).Probability(probability);
+        static public int d8(this int c, int mod = 0, int probability = 100) => (d_(c, 8) + mod).Probability(probability);
+        static public int d10(this int c, int mod = 0, int probability = 100) => (d_(c, 10) + mod).Probability(probability);
+        static public int d12(this int c, int mod = 0, int probability = 100) => (d_(c, 12) + mod).Probability(probability);
+        static public int d20(this int c, int mod = 0, int probability = 100) => (d_(c, 20) + mod).Probability(probability);
+        static public int d100(this int c, int mod = 0, int probability = 100) => (d_(c, 100) + mod).Probability(probability);
+        static public int d_(this int c, int s, int mod = 0, int probability = 100) => (d_(c, s) + mod).Probability(probability);
 #pragma warning restore IDE1006
 
         /// <summary>
@@ -171,7 +171,7 @@ namespace Anikaiful.Dice
         /// <param name="n">Some value.</param>
         /// <param name="probability">Probability of value staying non-<c>0</c>.</param>
         /// <returns><paramref name="n"/> or <c>0</c></returns>
-        static public int Probability(this int n, int probability) => (Dice.d_(1, 100) <= Dice.ValidateProbability(probability)) ? n : 0;
+        static public int Probability(this int n, int probability) => (d_(1, 100) <= ValidateProbability(probability)) ? n : 0;
 
         /// <summary>
         /// Value or negated value.
@@ -179,6 +179,6 @@ namespace Anikaiful.Dice
         /// <param name="b">Some <see langword="bool"/>.</param>
         /// <param name="probability">Probability of <paramref name="b"/> staying what it is.</param>
         /// <returns><paramref name="b"/> or its opposite value.</returns>
-        static public bool Probability(this bool b, int probability) => (Dice.d_(1, 100) <= Dice.ValidateProbability(probability)) ? b : !b;
+        static public bool Probability(this bool b, int probability) => (d_(1, 100) <= ValidateProbability(probability)) ? b : !b;
     }
 }
