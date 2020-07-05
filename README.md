@@ -12,4 +12,4 @@ Bugs may or may not exist, and thus this library comes without any sort of warra
 
 # Change Log?
 ## 3.1.5.3 to 3.1.5.4
-* `string` extension `Evaluate()` now handles negative roll expressions properly, e.g. `"foobarbaz -1d10 bazbarfoo"`.
+* `string` extension `Evaluate()` now handles negative roll expressions properly, f.ex. in `"foobarbaz -1d10 bazbarfoo".Evaluate()`.
