@@ -121,7 +121,7 @@ namespace Anikaiful.Dice
         /// <param name="s">String</param>
         /// <returns>A (possibly modified) string.</returns>
         static internal string Evaluate(string s, RollEvaluateMethod evaluateMethod = RollEvaluateMethod.Default)
-            => Regex.Replace(s, @"([1-9][0-9]*)?[dD]([1-9][0-9]*)", delegate (Match match)
+            => Regex.Replace(s, @"([-]?[1-9][0-9]*)?[dD]([1-9][0-9]*)", delegate (Match match)
             {
                 int v = (match.Groups[1].Length > 0)
                     ? int.Parse(match.Groups[1].ToString())
