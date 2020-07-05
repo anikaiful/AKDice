@@ -9,3 +9,7 @@ Bugs may or may not exist, and thus this library comes without any sort of warra
 # TL;DR
 * See [usage primer](AKDice/README.md).
 * Visit [NuGet.org](https://nuget.org/packages/AKDice).
+
+# Change Log?
+## 3.1.5.3 to 3.1.5.4
+* `string` extension `Evaluate()` now handles negative roll expressions properly, f.ex. in `"foobarbaz -1d10 bazbarfoo".Evaluate()`.
