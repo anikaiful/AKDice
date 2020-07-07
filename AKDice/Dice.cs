@@ -163,12 +163,15 @@ namespace Anikaiful.Dice
 #pragma warning restore IDE1006
 
         /// <summary>
-        /// Value or <c>0</c>.
+        /// Value or <paramref name="otherwise"/>.
         /// </summary>
         /// <param name="n">Some value.</param>
         /// <param name="probability">Probability of value staying non-<c>0</c>.</param>
-        /// <returns><paramref name="n"/> or <c>0</c></returns>
-        static public int Probability(this int n, int probability) => (d_(1, 100) <= ValidateProbability(probability)) ? n : 0;
+        /// <param name="otherwise">[optional] fallback value if probability criteria is not met.</param>
+        /// <returns><paramref name="n"/> or <paramref name="otherwise"/>.</returns>
+        static public int Probability(this int n, int probability, int otherwise = 0)
+            => (d_(1, 100) <= ValidateProbability(probability))
+            ? n : otherwise;
 
         /// <summary>
         /// Value or negated value.

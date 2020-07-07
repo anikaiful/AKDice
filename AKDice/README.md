@@ -34,6 +34,7 @@ Dice roll simulations. See the [Doc.md](Doc.md) for more details, but in short:
 * `d12 (...)`
 * `d20 (...)`
 * `d100 (...)`, all as per `d2` above.
+* `Probability (int probability, int otherwise=0)`
 ```
   int r1 = 5.d6();
   int r2 = 5.d6(5);
@@ -41,6 +42,8 @@ Dice roll simulations. See the [Doc.md](Doc.md) for more details, but in short:
   int r4 = 5.d6(mod: 5, probability: 75);
   int r5 = 5.d6(probability: 75);
   int r6 = (5.d6(5, 1.d100())).d6(probability: 25);
+  int p1 = 10.Probability(50);
+  int p2 = 25.Probability(75, /*otherwise:*/ 10);
 ```
 ## `string` Extensions
 ```

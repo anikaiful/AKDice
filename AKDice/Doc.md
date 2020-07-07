@@ -36,8 +36,8 @@ Returns `true` if a random black-box roll with given `probability` so dictates, 
 ... toss a D100 (yea, these dice do exist, too).
 
 Internally the above extensions refer to...
-* `int #.Probability(int probability)`
-... which returns either `#` itself or zero, depending.
+* `int #.Probability(int probability, int otherwise=0)`
+... which returns either `#` itself or `otherwise`, depending.
 
 ## Extensions to `bool`
 `#` refers to any valid `bool` value.
