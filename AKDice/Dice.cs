@@ -161,6 +161,16 @@ namespace Anikaiful.Dice
         static public int d100(this int c, int mod = 0, int probability = 100) => (d_(c, 100) + mod).Probability(probability);
         static public int d_(this int c, int s, int mod = 0, int probability = 100) => (d_(c, s) + mod).Probability(probability);
 #pragma warning restore IDE1006
+        static public int D2(this int c, int mod = 0, int probability = 100) => c.d2(mod, probability);
+        static public int D3(this int c, int mod = 0, int probability = 100) => c.d3(mod, probability);
+        static public int D4(this int c, int mod = 0, int probability = 100) => c.d4(mod, probability);
+        static public int D5(this int c, int mod = 0, int probability = 100) => c.d5(mod, probability);
+        static public int D6(this int c, int mod = 0, int probability = 100) => c.d6(mod, probability);
+        static public int D8(this int c, int mod = 0, int probability = 100) => c.d8(mod, probability);
+        static public int D10(this int c, int mod = 0, int probability = 100) => c.d10(mod, probability);
+        static public int D12(this int c, int mod = 0, int probability = 100) => c.d12(mod, probability);
+        static public int D20(this int c, int mod = 0, int probability = 100) => c.d20(mod, probability);
+        static public int D100(this int c, int mod = 0, int probability = 100) => c.d100(mod, probability);
 
         /// <summary>
         /// Value or <paramref name="otherwise"/>.

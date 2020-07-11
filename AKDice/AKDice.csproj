@@ -5,17 +5,25 @@
     <RootNamespace>Anikaiful.Dice</RootNamespace>
     <Copyright>Copyright © 2015-2020 Anita Kai</Copyright>
     <Description>Dice roll simulations.</Description>
-    <Version>3.1.5.5</Version>
+    <Version>3.1.5.6</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Platforms>AnyCPU;x64</Platforms>
-    <PackageProjectUrl>https://nuget.org/packages/AKDice</PackageProjectUrl>
+    <PackageProjectUrl>https://scifi.linkpc.net/akdice/</PackageProjectUrl>
     <PackageTags>dice library csharp</PackageTags>
     <Authors>Anita Kai</Authors>
     <Company>-</Company>
-    <AssemblyVersion>3.1.5.5</AssemblyVersion>
+    <AssemblyVersion>3.1.5.6</AssemblyVersion>
     <FileVersion>3.1.5.0</FileVersion>
     <RepositoryUrl>https://github.com/anikaiful/AKDice</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
+    <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\..\..\html\LICENSE.md">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
 
 </Project>
