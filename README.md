@@ -11,5 +11,7 @@ Bugs may or may not exist, and thus this library comes without any sort of warra
 * Visit [NuGet.org](https://nuget.org/packages/AKDice).
 
 # Change Log?
+## 3.1.5.4 to 3.1.5.5
+No API changes, just minor alterations.
 ## 3.1.5.3 to 3.1.5.4
 * `string` extension `Evaluate()` now handles negative roll expressions properly, f.ex. in `"foobarbaz -1d10 bazbarfoo".Evaluate()`.
