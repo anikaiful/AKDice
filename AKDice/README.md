@@ -34,7 +34,7 @@ Dice roll simulations. See the [Doc.md](Doc.md) for more details, but in short:
 * `d12 (...)`
 * `d20 (...)`
 * `d100 (...)`, all as per `d2` above.
-* `Probability (int probability, int otherwise=0)`
+* `Probability (int|string probability, int otherwise=0)`
 ```
   int r1 = 5.d6();
   int r2 = 5.d6(5);
@@ -58,4 +58,5 @@ Dice roll simulations. See the [Doc.md](Doc.md) for more details, but in short:
 ```
   bool b1 = true.Probability(75);       // 75% chance for b1==true, 25% for b1==false
   bool b2 = (b1==true).Probability(33); // ;-) ... yeah, go figure ...
+  bool b3 = true.Probability("50");	// 50% chance for b3 to be true
 ```

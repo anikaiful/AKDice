@@ -182,6 +182,8 @@ namespace Anikaiful.Dice
         static public int Probability(this int n, int probability, int otherwise = 0)
             => (d_(1, 100) <= ValidateProbability(probability))
             ? n : otherwise;
+        static public int Probability(this int n, string probabilityExpr, int otherwise = 0)
+            => n.Probability(probabilityExpr.Evaluate<int>(), otherwise);
 
         /// <summary>
         /// Value or negated value.
@@ -190,5 +192,6 @@ namespace Anikaiful.Dice
         /// <param name="probability">Probability of <paramref name="b"/> staying what it is.</param>
         /// <returns><paramref name="b"/> or its opposite value.</returns>
         static public bool Probability(this bool b, int probability) => (d_(1, 100) <= ValidateProbability(probability)) ? b : !b;
+        static public bool Probability(this bool b, string probabilityExpr) => b.Probability(probabilityExpr.Evaluate<int>());
     }
 }
