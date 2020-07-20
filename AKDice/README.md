@@ -54,6 +54,11 @@ Dice roll simulations. See the [Doc.md](Doc.md) for more details, but in short:
   double d  = "5d6+5".Evaluate<double>();
   decimal m = "5d6+5".Evaluate<decimal>();
 ```
+`Evaluate` methods have their corresponding `Maximize` and `Minimize` variants, e.g.
+```
+  int mi = "5d10+5".Minimize<int>();
+  int mx = "5d10+5".Maximize<int>();
+```
 ## `bool` Extensions
 ```
   bool b1 = true.Probability(75);       // 75% chance for b1==true, 25% for b1==false

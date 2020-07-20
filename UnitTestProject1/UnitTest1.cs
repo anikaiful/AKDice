@@ -19,5 +19,12 @@ namespace UnitTestProject1
             int s = "5+5".Evaluate<int>();
             Assert.AreEqual(10, s);
         }
+
+        [TestMethod]
+        public void TestMethod3()
+        {
+            int s = "5d10+5".Maximize<int>();
+            Assert.AreEqual(55, s);
+        }
     }
 }

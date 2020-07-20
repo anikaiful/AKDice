@@ -51,14 +51,22 @@ Evaluates all dice roll expressions and/or simple calculation ops (plus, minus, 
 * `T #.Evaluate`<`T`>`(Dice.RollEvaluateMethod method = Dice.RollEvaluateMethod.Default)`
 As per `#.Evaluate()` but with result represented as `T`. Note that this will work (only) when `T` is:
         `int`, `long`, `float`, `double`, `decimal`.
+* `T #.Maximize`<`T`>`()`
+As per `#.Evaluate`<`T`>`()` but with result maximized.
+* `T #.Minimize`<`T`>`()`
+As per `#.Evaluate`<`T`>`()` but with result minimized.
 
 # Examples
-    var a = 3.d6(); // throw 3d6
-    var b = 4.d4(3); // throw 4d4+3
-    var c = true.Probability(35); // 35% probability to result in "true", 65% "false"
-    var d = (a+b).d8(probability: 75); // 75% probability to result in "(a+b)d8", 25% in zero.
-    var s = "This string contains dice expression 18d7+8 and so on.".Evaluate();
-    //  s = "This string contains dice expression # and so on.", where # is the result of 18d7+8.
+```
+  var a = 3.d6(); // throw 3d6
+  var b = 4.d4(3); // throw 4d4+3
+  var c = true.Probability(35); // 35% probability to result in "true", 65% "false"
+  var d = (a+b).d8(probability: 75); // 75% probability to result in "(a+b)d8", 25% in zero.
+  var s = "This string contains dice expression 18d7+8 and so on.".Evaluate();
+  //  s = "This string contains dice expression # and so on.", where # is the result of 18d7+8.
+  var l = "5d10+5".Minimize<int>(); // l == 10
+  var m = "5d10+5".Maximize<int>(); // m == 55
+```
 
 # TODO, etc.
 * Get `#.Evaluate()` to work with various forms of probability expressions.

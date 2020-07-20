@@ -58,18 +58,21 @@ namespace Anikaiful.Dice
         static public T Evaluate<T>(this string s, Dice.RollEvaluateMethod evaluateMethod = Dice.RollEvaluateMethod.Default)
         {
             if (typeof(T) == typeof(int))
-                return (T)(object)int.Parse(s.Evaluate());
+                return (T)(object)int.Parse(s.Evaluate(evaluateMethod));
             if (typeof(T) == typeof(double))
-                return (T)(object)double.Parse(s.Evaluate());
+                return (T)(object)double.Parse(s.Evaluate(evaluateMethod));
             if (typeof(T) == typeof(long))
-                return (T)(object)long.Parse(s.Evaluate());
+                return (T)(object)long.Parse(s.Evaluate(evaluateMethod));
             if (typeof(T) == typeof(float))
-                return (T)(object)float.Parse(s.Evaluate());
+                return (T)(object)float.Parse(s.Evaluate(evaluateMethod));
             if (typeof(T) == typeof(decimal))
-                return (T)(object)decimal.Parse(s.Evaluate());
+                return (T)(object)decimal.Parse(s.Evaluate(evaluateMethod));
 
             throw new TypeAccessException("At the moment only these types are supported: int, long, float, double, decimal");
         }
+
+        static public T Maximize<T>(this string s) => s.Evaluate<T>(Dice.RollEvaluateMethod.Maximize);
+        static public T Minimize<T>(this string s) => s.Evaluate<T>(Dice.RollEvaluateMethod.Minimize);
 
         /// <summary>
         /// Do one mode of math within a string.
