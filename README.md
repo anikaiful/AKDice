@@ -11,6 +11,9 @@ Bugs may or may not exist, and thus this library comes without any sort of warra
 * Visit [NuGet.org](https://nuget.org/packages/AKDice).
 
 # Change Log?
+## 3.1.5.5 to 3.1.5.8
+* Added `Maximize` and `Minimize` string extensions.
+* Fixed a semi-critical oversight in `Evaluate` method...
 ## 3.1.5.4 to 3.1.5.5
 No API changes, just minor alterations.
 ## 3.1.5.3 to 3.1.5.4
