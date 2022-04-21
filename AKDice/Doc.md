@@ -55,6 +55,8 @@ As per `#.Evaluate()` but with result represented as `T`. Note that this will wo
 As per `#.Evaluate`<`T`>`()` but with result maximized.
 * `T #.Minimize`<`T`>`()`
 As per `#.Evaluate`<`T`>`()` but with result minimized.
+### P.s. Evaluate()...
+Beware `*` and `/` in strings. Use `Evaluate` only on strings that need evaluation done. Various date-time formats may have unintended results...
 
 # Examples
 ```
