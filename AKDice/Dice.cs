@@ -74,10 +74,11 @@ namespace Anikaiful.Dice
         }
 
         /// <summary>
-        /// Get a random number in the given range.
+        /// Get a random number in the given range. Note that it doesn't matter which value
+        /// is larger, they're swapped if needed.
         /// </summary>
-        /// <param name="i1">Minimum value returned.</param>
-        /// <param name="i2">Maximum value returned.</param>
+        /// <param name="i1">Min/max value returned.</param>
+        /// <param name="i2">Max/min value returned.</param>
         /// <returns>Some <see langword="int"/>.</returns>
         static public int Range(int i1, int i2)
         {
@@ -95,9 +96,12 @@ namespace Anikaiful.Dice
         }
 
         /// <summary>
-        /// 
+        /// Flip a coin and see if it's a "high" value.
         /// </summary>
         static public bool high { get => _rng_.Next(2) > 0; }
+        /// <summary>
+        /// Flip a coin and see if it's a "low" value.
+        /// </summary>
         static public bool low { get => !high; }
 
         /// <summary>
@@ -180,10 +184,11 @@ namespace Anikaiful.Dice
         /// <param name="otherwise">[optional] fallback value if probability criteria is not met.</param>
         /// <returns><paramref name="n"/> or <paramref name="otherwise"/>.</returns>
         static public int Probability(this int n, int probability, int otherwise = 0)
-            => (d_(1, 100) <= ValidateProbability(probability))
-            ? n : otherwise;
+            => (d_(1, 100) <= ValidateProbability(probability)) ? n : otherwise;
         static public int Probability(this int n, string probabilityExpr, int otherwise = 0)
             => n.Probability(probabilityExpr.Evaluate<int>(), otherwise);
+        static public int Probability(this int n, Func<int> f, int otherwise = 0)
+            => (d_(1, 100) <= ValidateProbability(n)) ? f() : otherwise;
 
         /// <summary>
         /// Value or negated value.
@@ -191,7 +196,9 @@ namespace Anikaiful.Dice
         /// <param name="b">Some <see langword="bool"/>.</param>
         /// <param name="probability">Probability of <paramref name="b"/> staying what it is.</param>
         /// <returns><paramref name="b"/> or its opposite value.</returns>
-        static public bool Probability(this bool b, int probability) => (d_(1, 100) <= ValidateProbability(probability)) ? b : !b;
-        static public bool Probability(this bool b, string probabilityExpr) => b.Probability(probabilityExpr.Evaluate<int>());
+        static public bool Probability(this bool b, int probability)
+            => (d_(1, 100) <= ValidateProbability(probability)) ? b : !b;
+        static public bool Probability(this bool b, string probabilityExpr)
+            => b.Probability(probabilityExpr.Evaluate<int>());
     }
 }

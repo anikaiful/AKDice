@@ -5,7 +5,7 @@
     <RootNamespace>Anikaiful.Dice</RootNamespace>
     <Copyright>Copyright © 2015-2020 Anita Kai</Copyright>
     <Description>Dice roll simulations.</Description>
-    <Version>3.1.5.8</Version>
+    <Version>3.1.5.9</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Platforms>AnyCPU;x64</Platforms>
     <PackageProjectUrl>https://scifi.linkpc.net/akdice/</PackageProjectUrl>

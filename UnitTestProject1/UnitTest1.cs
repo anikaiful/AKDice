@@ -26,5 +26,11 @@ namespace UnitTestProject1
             int s = "5d10+5".Maximize<int>();
             Assert.AreEqual(55, s);
         }
+
+        [TestMethod]
+        public void TestMethod4()
+        {
+            int s = Dice.Range(1, 10);
+        }
     }
 }

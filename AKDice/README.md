@@ -44,6 +44,8 @@ Dice roll simulations. See the [Doc.md](Doc.md) for more details, but in short:
   int r6 = (5.d6(5, 1.d100())).d6(probability: 25);
   int p1 = 10.Probability(50);
   int p2 = 25.Probability(75, /*otherwise:*/ 10);
+  // lambda arg:
+  int f1 = 85.Probability(() => 1.d20(), /* otherwise: */ 0); // 85% chance for 1.d20(), otherwise 0
 ```
 ## `string` Extensions
 ```
