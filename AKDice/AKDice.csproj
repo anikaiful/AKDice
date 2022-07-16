@@ -3,9 +3,9 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <RootNamespace>Anikaiful.Dice</RootNamespace>
-    <Copyright>Copyright © 2015-2020 Anita Kai</Copyright>
+    <Copyright>Copyright © 2015-2022 Anita Kai</Copyright>
     <Description>Dice roll simulations.</Description>
-    <Version>3.1.5.9</Version>
+    <Version>3.1.5.11</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Platforms>AnyCPU;x64</Platforms>
     <PackageProjectUrl>https://scifi.linkpc.net/akdice/</PackageProjectUrl>
@@ -17,6 +17,7 @@
     <RepositoryUrl>https://github.com/anikaiful/AKDice</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+	<PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -24,6 +25,7 @@
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
+	<None Include="README.md" Pack="true" PackagePath="\" />
   </ItemGroup>
 
 </Project>

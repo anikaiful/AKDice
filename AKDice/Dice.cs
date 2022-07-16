@@ -64,11 +64,7 @@ namespace Anikaiful.Dice
 
             // swap if needed
             if (d1 > d2)
-            {
-                double t = d1;
-                d1 = d2;
-                d2 = t;
-            }
+                (d2, d1) = (d1, d2);
 
             return d1 + (_rng_.NextDouble() * (d2 - d1));
         }
@@ -86,23 +82,23 @@ namespace Anikaiful.Dice
 
             // swap if needed
             if (i1 > i2)
-            {
-                int t = i1;
-                i1 = i2;
-                i2 = t;
-            }
+                (i2, i1) = (i1, i2);
 
             return _rng_.Next(i1, i2);
         }
 
+#pragma warning disable IDE1006
         /// <summary>
         /// Flip a coin and see if it's a "high" value.
         /// </summary>
         static public bool high { get => _rng_.Next(2) > 0; }
+#pragma warning restore IDE1006 // Naming Styles
+#pragma warning disable IDE1006
         /// <summary>
         /// Flip a coin and see if it's a "low" value.
         /// </summary>
         static public bool low { get => !high; }
+#pragma warning restore IDE1006 // Naming Styles
 
         /// <summary>
         /// Convert a <see langword="bool?"/> into <see langword="bool"/>ean value.
@@ -111,13 +107,6 @@ namespace Anikaiful.Dice
         /// <param name="b"></param>
         /// <returns><c>true</c>|<c>false</c></returns>
         static public bool ToBoolean(bool? b) => b ?? high;
-
-        /// <summary>
-        /// Roll versus a percentage chance.
-        /// </summary>
-        /// <param name="thisOrBelow">Success if roll is below-or-equal-to this number</param>
-        /// <returns>Success</returns>
-        static public bool Chance(int probability = 50) => 1.d100() <= probability;
 
         /// <summary>
         /// Roll (all, if any) dice representations within given string.
@@ -138,6 +127,40 @@ namespace Anikaiful.Dice
                 };
             });
 
+        #region int extensions; d2-d100
+#pragma warning disable IDE1006
+        static public int d2(this int c, int mod = 0, int probability = 100) => (d_(c, 2) + mod).Probability(probability);
+        static public int d3(this int c, int mod = 0, int probability = 100) => (d_(c, 3) + mod).Probability(probability);
+        static public int d4(this int c, int mod = 0, int probability = 100) => (d_(c, 4) + mod).Probability(probability);
+        static public int d5(this int c, int mod = 0, int probability = 100) => (d_(c, 5) + mod).Probability(probability);
+        static public int d6(this int c, int mod = 0, int probability = 100) => (d_(c, 6) + mod).Probability(probability);
+        static public int d8(this int c, int mod = 0, int probability = 100) => (d_(c, 8) + mod).Probability(probability);
+        static public int d10(this int c, int mod = 0, int probability = 100) => (d_(c, 10) + mod).Probability(probability);
+        static public int d12(this int c, int mod = 0, int probability = 100) => (d_(c, 12) + mod).Probability(probability);
+        static public int d20(this int c, int mod = 0, int probability = 100) => (d_(c, 20) + mod).Probability(probability);
+        static public int d100(this int c, int mod = 0, int probability = 100) => (d_(c, 100) + mod).Probability(probability);
+        static public int d_(this int c, int s, int mod = 0, int probability = 100) => (d_(c, s) + mod).Probability(probability);
+#pragma warning restore IDE1006
+        #endregion d2-d100
+        #region int extensions; D2-D100
+        static public int D2(this int c, int mod = 0, int probability = 100) => c.d2(mod, probability);
+        static public int D3(this int c, int mod = 0, int probability = 100) => c.d3(mod, probability);
+        static public int D4(this int c, int mod = 0, int probability = 100) => c.d4(mod, probability);
+        static public int D5(this int c, int mod = 0, int probability = 100) => c.d5(mod, probability);
+        static public int D6(this int c, int mod = 0, int probability = 100) => c.d6(mod, probability);
+        static public int D8(this int c, int mod = 0, int probability = 100) => c.d8(mod, probability);
+        static public int D10(this int c, int mod = 0, int probability = 100) => c.d10(mod, probability);
+        static public int D12(this int c, int mod = 0, int probability = 100) => c.d12(mod, probability);
+        static public int D20(this int c, int mod = 0, int probability = 100) => c.d20(mod, probability);
+        static public int D100(this int c, int mod = 0, int probability = 100) => c.d100(mod, probability);
+        #endregion
+        #region Probability calculations...
+        /// <summary>
+        /// Roll versus a percentage chance.
+        /// </summary>
+        /// <param name="thisOrBelow">Success if roll is below-or-equal-to this number</param>
+        /// <returns>Success</returns>
+        static public bool Chance(int probability = 50) => 1.d100() <= probability;
         /// <summary>
         /// Validate a probability value.
         /// </summary>
@@ -152,29 +175,6 @@ namespace Anikaiful.Dice
             return v;
         }
 
-#pragma warning disable IDE1006
-        static public int d2(this int c, int mod = 0, int probability = 100) => (d_(c, 2) + mod).Probability(probability);
-        static public int d3(this int c, int mod = 0, int probability = 100) => (d_(c, 3) + mod).Probability(probability);
-        static public int d4(this int c, int mod = 0, int probability = 100) => (d_(c, 4) + mod).Probability(probability);
-        static public int d5(this int c, int mod = 0, int probability = 100) => (d_(c, 5) + mod).Probability(probability);
-        static public int d6(this int c, int mod = 0, int probability = 100) => (d_(c, 6) + mod).Probability(probability);
-        static public int d8(this int c, int mod = 0, int probability = 100) => (d_(c, 8) + mod).Probability(probability);
-        static public int d10(this int c, int mod = 0, int probability = 100) => (d_(c, 10) + mod).Probability(probability);
-        static public int d12(this int c, int mod = 0, int probability = 100) => (d_(c, 12) + mod).Probability(probability);
-        static public int d20(this int c, int mod = 0, int probability = 100) => (d_(c, 20) + mod).Probability(probability);
-        static public int d100(this int c, int mod = 0, int probability = 100) => (d_(c, 100) + mod).Probability(probability);
-        static public int d_(this int c, int s, int mod = 0, int probability = 100) => (d_(c, s) + mod).Probability(probability);
-#pragma warning restore IDE1006
-        static public int D2(this int c, int mod = 0, int probability = 100) => c.d2(mod, probability);
-        static public int D3(this int c, int mod = 0, int probability = 100) => c.d3(mod, probability);
-        static public int D4(this int c, int mod = 0, int probability = 100) => c.d4(mod, probability);
-        static public int D5(this int c, int mod = 0, int probability = 100) => c.d5(mod, probability);
-        static public int D6(this int c, int mod = 0, int probability = 100) => c.d6(mod, probability);
-        static public int D8(this int c, int mod = 0, int probability = 100) => c.d8(mod, probability);
-        static public int D10(this int c, int mod = 0, int probability = 100) => c.d10(mod, probability);
-        static public int D12(this int c, int mod = 0, int probability = 100) => c.d12(mod, probability);
-        static public int D20(this int c, int mod = 0, int probability = 100) => c.d20(mod, probability);
-        static public int D100(this int c, int mod = 0, int probability = 100) => c.d100(mod, probability);
 
         /// <summary>
         /// Value or <paramref name="otherwise"/>.
@@ -187,8 +187,11 @@ namespace Anikaiful.Dice
             => (d_(1, 100) <= ValidateProbability(probability)) ? n : otherwise;
         static public int Probability(this int n, string probabilityExpr, int otherwise = 0)
             => n.Probability(probabilityExpr.Evaluate<int>(), otherwise);
-        static public int Probability(this int n, Func<int> f, int otherwise = 0)
+        static public int ProbabilityTo(this int n, Func<int> f, int otherwise = 0)
             => (d_(1, 100) <= ValidateProbability(n)) ? f() : otherwise;
+#pragma warning disable IDE1006 // Naming Styles
+        static public int p2(this int n, Func<int> f, int otherwise = 0) => n.ProbabilityTo(f, otherwise);
+#pragma warning restore IDE1006 // Naming Styles
 
         /// <summary>
         /// Value or negated value.
@@ -200,5 +203,6 @@ namespace Anikaiful.Dice
             => (d_(1, 100) <= ValidateProbability(probability)) ? b : !b;
         static public bool Probability(this bool b, string probabilityExpr)
             => b.Probability(probabilityExpr.Evaluate<int>());
+        #endregion ...improbable!
     }
 }

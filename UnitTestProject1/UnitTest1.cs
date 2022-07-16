@@ -32,5 +32,11 @@ namespace UnitTestProject1
         {
             int s = Dice.Range(1, 10);
         }
+
+        [TestMethod]
+        public void TestMethod5()
+        {
+            //int s = 85.p2(() => 1.d10(10)).otherwise(7);
+        }
     }
 }
